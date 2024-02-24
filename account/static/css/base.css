@@ -1,0 +1,12 @@
+body, html {
+    height: 100%;
+}
+
+
+.message-fixed {
+    position: fixed;
+    top: 5rem;
+    right: 4.5rem;
+    z-index: 1050;
+    max-width: 300px;
+}

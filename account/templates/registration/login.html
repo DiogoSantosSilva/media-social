@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Log-in{% endblock title %}
+
+{% block content %}
+<div class="columns is-centered">
+    <div class="column is-5-desktop">
+        <section class="hero box">
+            <div class="hero-body">
+                <p class="title">Log-in</p>
+                {% if not form.errors %}
+                <p class="subtitle">Please, use the form below to log-in: If you don't have an account <a href="{% url 'register'%}">register here</a></p>
+                {% else %}
+                <p class="subtitle has-text-danger">Please correct the errors below.</p>
+                {% endif %}
+
+                <form action="{% url 'login' %}" method="post" class="form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input type="hidden" name="next" value="{{ next }}">
+                    <div class="field">
+                        <p class="control">
+                            <button class="button is-link is-fullwidth" type="submit">Log in</button>
+                        </p>
+                    </div>
+                </form>
+                <div class="has-text-centered">
+                    <a href="{% url 'password_reset' %}">Forgotten your password?</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock content %}
