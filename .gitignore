@@ -34,7 +34,9 @@ MANIFEST
 *.spec
 users/
 
-cert.*
+cert.crt
+cert.key
+db.sqlite3
 
 # Installer logs
 pip-log.txt
